@@ -1,11 +1,24 @@
 {
   "name": "ra-postgraphile-client",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "react-admin data provider for postgraphile",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "@des-des",
-  "license": "ISC"
+  "license": "MIT",
+  "devDependencies": {
+    "apollo-link-http": "^1.5.15",
+    "isomorphic-fetch": "^2.2.1",
+    "pg": "^7.11.0",
+    "postgraphile": "^4.4.1",
+    "ra-core": "^2.9.3",
+    "ra-data-graphql": "^2.9.3",
+    "react": "^16.8.6",
+    "react-apollo": "^2.5.8"
+  },
+  "dependencies": {
+    "graphql-tag": "^2.10.1"
+  }
 }

@@ -1,0 +1,20 @@
+## todo
+  - [ ] Build out test suite
+    - [x] Build postgraphile server mocker
+    - [ ] add test script
+    - [ ] build out coverage
+  - [ ] Write readme
+  - [ ] Test on live project
+  - [ ] publish
+  - [ ] Cover all query types
+    - [ ] GET_LIST
+      - [x] pagination
+      - [ ] sort
+      - [ ] filter
+    - [x] GET_ONE  
+    - [ ] UPDATE
+    - [ ] UPDATE_MANY
+    - [ ] DELETE
+    - [ ] DELETE_MANY
+    - [ ] GET_MANY
+    - [ ] GET_MANY_REFERENCE
