@@ -17,6 +17,10 @@
     "react": "^16.8.6",
     "react-apollo": "^2.5.8"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/des-des/ra-postgraphile-client.git"
+  },
   "dependencies": {
     "apollo-link-http": "^1.5.15",
     "graphql-tag": "^2.10.1"
