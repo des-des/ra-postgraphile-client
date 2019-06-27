@@ -1,6 +1,6 @@
 {
   "name": "ra-postgraphile-client",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "react-admin data provider for postgraphile",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,6 @@
   "author": "@des-des",
   "license": "MIT",
   "devDependencies": {
-    "apollo-link-http": "^1.5.15",
     "isomorphic-fetch": "^2.2.1",
     "pg": "^7.11.0",
     "postgraphile": "^4.4.1",
@@ -19,6 +18,7 @@
     "react-apollo": "^2.5.8"
   },
   "dependencies": {
+    "apollo-link-http": "^1.5.15",
     "graphql-tag": "^2.10.1"
   }
 }

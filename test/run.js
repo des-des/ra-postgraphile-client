@@ -1,6 +1,6 @@
 const fetch = require('isomorphic-fetch')
 
-const postgraphileServer = require('../lib/create_postgraphile_server.js')
+const postgraphileServer = require('./create_postgraphile_server.js')
 const buildPostgraphileProvider = require('../')
 
 const tearupSchema = `
@@ -23,11 +23,11 @@ const connectionUrl =
 
 const run = async () => {
   const server = await postgraphileServer(
-    tearupSchema, teardownSchema, connectionUrl, 3000)
+    tearupSchema, teardownSchema, connectionUrl, 3001)
   return {
     provider: await buildPostgraphileProvider({
       apolloHttpLinkOptions: {
-        uri: `http://localhost:3000/graphql`,
+        uri: `http://localhost:3001/graphql`,
         fetch
       }
     }),
