@@ -4,6 +4,9 @@ This is a data provider that connects [postgraphile](https://www.graphile.org/po
 
 **Under active development**. Right now this library does not have a stable API. If you want to use this in production please raise an issue and I will release a v1.0.0.
 
+## Authentication
+This library looks for a postgraphile ready jwt in the local storage with the key 'token'. Implement an [auth provider](https://marmelab.com/react-admin/Authentication.html) to initialise the JWT
+
 ## todo
   - [ ] Build out test suite
     - [x] Build postgraphile server mocker
@@ -18,7 +21,7 @@ This is a data provider that connects [postgraphile](https://www.graphile.org/po
       - [ ] sort
       - [ ] filter
     - [x] GET_ONE  
-    - [ ] UPDATE
+    - [x] UPDATE
     - [ ] UPDATE_MANY
     - [ ] DELETE
     - [ ] DELETE_MANY

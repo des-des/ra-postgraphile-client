@@ -1,6 +1,6 @@
 {
   "name": "ra-postgraphile-client",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "react-admin data provider for postgraphile",
   "main": "index.js",
   "scripts": {
@@ -8,6 +8,12 @@
   },
   "author": "@des-des",
   "license": "MIT",
+  "dependencies": {
+    "apollo-cache-inmemory": "^1.6.2",
+    "apollo-client": "^2.6.3",
+    "apollo-link-http": "^1.5.15",
+    "graphql-tag": "^2.10.1"
+  },
   "devDependencies": {
     "isomorphic-fetch": "^2.2.1",
     "pg": "^7.11.0",
@@ -19,10 +25,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/des-des/ra-postgraphile-client.git"
+    "url": "https://github.com/des-des/ra-postgraphile-client.git"
   },
-  "dependencies": {
-    "apollo-link-http": "^1.5.15",
-    "graphql-tag": "^2.10.1"
-  }
+  "homepage": "https://github.com/des-des/ra-postgraphile-client",
+  "keywords": ["react-admin", "postgrahile", "graphql"]
 }
