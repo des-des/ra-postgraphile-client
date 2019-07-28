@@ -19,11 +19,26 @@ This library looks for a postgraphile ready jwt in the local storage with the ke
     - [ ] GET_LIST
       - [x] pagination
       - [ ] sort
+      - [ ] order
       - [ ] filter
-    - [x] GET_ONE  
+    - [x] GET_ONE
+      - [x] id
     - [x] UPDATE
+      - [x] id
+      - [x] data
     - [ ] UPDATE_MANY
+      - [ ] ids
+      - [ ] data
     - [ ] DELETE
+      - [ ] id
     - [ ] DELETE_MANY
-    - [ ] GET_MANY
+      - [ ] ids
+    - [x] GET_MANY
+      - [x] ids
     - [ ] GET_MANY_REFERENCE
+      - [ ] target
+      - [ ] id
+      - [ ] pagination
+      - [ ] perPage
+      - [ ] sort
+      - [ ] filter

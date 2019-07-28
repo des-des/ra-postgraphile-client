@@ -2,31 +2,20 @@ const buildGraphQLProvider = require('ra-data-graphql').default
 const { createHttpLink } = require('apollo-link-http')
 const { InMemoryCache } = require('apollo-cache-inmemory')
 const { ApolloClient } = require('apollo-client')
-const { ApolloLink } = require('apollo-link')
 
-const buildQuery = require('./lib/build_query')
+const postgraphileBuildQuery = require('./lib/build_query')
 const introspection = require('./lib/introspection')
 
 
-const buildPostgraphileProvider = ({ apolloHttpLinkOptions }) => {
+const buildPostgraphileProvider = ({
+  apolloHttpLinkOptions,
+  buildQuery=postgraphileBuildQuery
+}) => {
 
   const httpLink = createHttpLink(apolloHttpLinkOptions);
 
-  const token = localStorage.getItem("token")
-  const middlewareLink = new ApolloLink((operation, forward) => {
-    operation.setContext({
-      headers: token ? {
-        authorization:  `Bearer ${token}`
-      } : {
-      }
-    });
-    return forward(operation);
-  });
-
-  const link = middlewareLink.concat(httpLink);
-
   const client = new ApolloClient({
-    link: link,
+    link: httpLink,
     cache: new InMemoryCache()
   })
 
@@ -34,7 +23,23 @@ const buildPostgraphileProvider = ({ apolloHttpLinkOptions }) => {
     client,
     buildQuery,
     introspection
+  }).then(defaultGraphQLProvider => (raFetchType, resourceName, params) => {
+    // https://github.com/marmelab/react-admin/blob/4cf148571b9ec80493bca6979b2825ab2dd5e603/packages/ra-data-graphcool/src/index.js#L39
+    if (raFetchType === 'GET_MANY') {
+      return Promise.all(
+        params.ids.map(id =>
+          defaultGraphQLProvider('GET_ONE', resourceName, { id }))
+      ).then(results => ({
+        data: results.reduce(
+          (results, result) => ([...results, result.data]),
+          [])
+        })
+      )
+    }
+
+    return defaultGraphQLProvider(raFetchType, resourceName, params)
   })
 }
 
 module.exports = buildPostgraphileProvider
+module.exports.buildQuery = postgraphileBuildQuery
