@@ -1,6 +1,6 @@
 {
   "name": "ra-postgraphile-client",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "react-admin data provider for postgraphile",
   "main": "index.js",
   "scripts": {
